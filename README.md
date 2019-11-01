@@ -68,6 +68,40 @@ normal gemountet werden kann:
 # mount /dev/mapper/mein-crypto /tmp/mountpoint
 ```
 
+LUKS device *komplett löschen* (alle Daten sind weg, ACHTUNG!):
+```
+# cryptsetup erase /dev/sdx1
+
+WARNING!
+========
+This operation will erase all keyslots on device /dev/sdx1.
+Device will become unusable after this operation.
+
+Are you sure? (Type uppercase yes):
+```
+
+# Devices komplett löschen
+Funktioniert mit allen Block devices, Partitionen, z.B. USB-Sticks oder
+SD-Karten. Wichtig, wenn die unverschlüsselt waren:
+
+```
+# dd if=/dev/zero of=/dev/sdx bs=1M
+```
+
+Überschreibt das *komplette* Device /dev/sdx (also alle Partitionen). Wenn man
+nur eine Partition nehmen will, dann eben /dev/sdx1 oder /dev/sdx2 usw.
+*ACHTUNG* es gibt keine Bestätigung oder so, bei ENTER sind die Daten futsch.
+
+Wenn man nur den Header löschen will, kann man die Größe auch einschränken,
+z.B:
+
+```
+# dd if=/dev/zero of=/dev/sdx bs=1M count=1024
+```
+
+Löscht die ersten 1024 MiB von /dev/sdx (z.B. also die komplette
+Partitionstabelle).
+
 # Festplatte prüfen
 Wenn Lesefehler sind, üblicherweise im `dmesg` Log Einträge:
 
