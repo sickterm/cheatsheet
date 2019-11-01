@@ -17,7 +17,22 @@ UUID=34cefc1f-c51e-4d5b-b55a-30235869d43a   /               ext4    noatime     
 ```
 
 # LUKS
-LUKS Header anzeigen (alles als root):
+(Alles hier als root)
+
+LUKS Container initial erstellen:
+```
+# cryptsetup luksFormat /dev/sdx1
+
+WARNING!
+========
+This will overwrite data on /dev/sdx1 irrevocably.
+
+Are you sure? (Type uppercase yes): 
+Enter passphrase for /dev/sdx1: 
+Verify passphrase: 
+```
+
+LUKS Header anzeigen:
 ```
 # cryptsetup luksDump /dev/sdx1
 LUKS header information
