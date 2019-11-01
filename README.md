@@ -3,9 +3,12 @@ Festplatte: `/dev/sdx` (Block Device)
 
 Partition: `/dev/sdx1`, `/dev/sdx2` (auch Block Device)
 
-Partitionen erstellen (partitionieren): `fdisk`
+Partitionen erstellen (partitionieren): `fdisk`, am Besten für alle Platten GPT
+verwenden, nicht MBR (funktioniert dann auch für Platten größer als 2 TiB)
 
 Dateisystem erstellen (formatieren): z.B. `mkfs.ext4`
+
+Alle Block Devices im System anzeigen: `cat /proc/partitions`
 
 # SATA-hotplug neue Platten scannen
 `# scsi_rescan`
@@ -175,3 +178,24 @@ Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA
 # 1  Short offline       Completed: read failure       90%     11530         7383952
 ```
 
+# Ubuntu updaten
+Erstmal das System so wie es ist aktuell bringen:
+
+```
+# apt-get update
+# apt-get dist-upgrade
+```
+
+Dann Neubooten und Editieren von `/etc/apt/sources.list`:
+
+```
+deb http://ftp.halifax.rwth-aachen.de/ubuntu/ disco main restricted
+```
+
+Aktuelle Distribution `disco` -- ändern auf das neue Distribution (z.B.
+`eoan`). *Alle* Referenzen auf `disco` zum Neuen ändern. Dann:
+
+```
+# apt-get update
+# apt-get dist-upgrade
+```
