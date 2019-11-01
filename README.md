@@ -199,3 +199,22 @@ Aktuelle Distribution `disco` -- ändern auf das neue Distribution (z.B.
 # apt-get update
 # apt-get dist-upgrade
 ```
+
+# git
+Updates vom Remote holen:
+
+```
+$ git pull
+```
+
+Änderungen als Commit erzeugen:
+
+```
+$ git commit
+```
+
+Dann Commits auf den Remote pushen:
+
+```
+$ git push
+```
