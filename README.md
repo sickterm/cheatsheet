@@ -7,6 +7,9 @@ Partitionen erstellen (partitionieren): `fdisk`
 
 Dateisystem erstellen (formatieren): z.B. `mkfs.ext4`
 
+# SATA-hotplug neue Platten scannen
+`# scsi_rescan`
+
 # blkid
 Rausfinden, welche UUIDs Block Devices haben: `blkid`
 
