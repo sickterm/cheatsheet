@@ -1,3 +1,12 @@
+# Partitionieren und Dateisysteme
+Festplatte: `/dev/sdx` (Block Device)
+
+Partition: `/dev/sdx1`, `/dev/sdx2` (auch Block Device)
+
+Partitionen erstellen (partitionieren): `fdisk`
+
+Dateisystem erstellen (formatieren): z.B. `mkfs.ext4`
+
 # blkid
 Rausfinden, welche UUIDs Block Devices haben: `blkid`
 
