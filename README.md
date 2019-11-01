@@ -16,6 +16,58 @@ UUID=34cefc1f-c51e-4d5b-b55a-30235869d43a   /               ext4    noatime     
 /dev/mapper/crypt-home                      /home           ext4    noatime         0 0
 ```
 
+# LUKS
+LUKS Header anzeigen (alles als root):
+```
+# cryptsetup luksDump /dev/sdx1
+LUKS header information
+Version:       	2
+Epoch:         	6
+Metadata area: 	16384 [bytes]
+Keyslots area: 	16744448 [bytes]
+UUID:          	ffbe6fff-b2ac-4635-b744-80448f2bed10
+Label:         	(no label)
+Subsystem:     	(no subsystem)
+Flags:       	(no flags)
+[...]
+Keyslots:
+  1: luks2
+	Key:        512 bits
+	Priority:   normal
+	Cipher:     aes-xts-plain64
+	Cipher key: 512 bits
+	PBKDF:      argon2i
+	Time cost:  5
+	Memory:     1048576
+	Threads:    4
+	AF stripes: 4000
+	AF hash:    sha256
+	Area offset:290816 [bytes]
+	Area length:258048 [bytes]
+	Digest ID:  0
+```
+
+LUKS Passwort ändern:
+```
+# cryptsetup luksChangeKey /dev/sdx1
+Enter passphrase to be changed: [altes Passwort]
+Enter new passphrase: [neues Passwort]
+Verify passphrase: [nochmal neues Passwort]
+```
+
+In einem USB Stick ein LUKS Volumen öffnen:
+```
+# cryptsetup luksOpen /dev/sdx1 mein-crypto
+Enter passphrase for /dev/sdx1: 
+```
+
+Wenn Passwort korrekt war, gibt es jetzt `/dev/mapper/mein-crypto`, das z.B.
+normal gemountet werden kann:
+
+```
+# mount /dev/mapper/mein-crypto /tmp/mountpoint
+```
+
 # Festplatte prüfen
 Wenn Lesefehler sind, üblicherweise im `dmesg` Log Einträge:
 
@@ -61,3 +113,4 @@ Bei Fehler steht hier so etwas:
 Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
 # 1  Short offline       Completed: read failure       90%     11530         7383952
 ```
+
