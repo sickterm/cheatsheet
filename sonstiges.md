@@ -1,5 +1,5 @@
-#Editoren benutzen
-##VI 
+# Editoren benutzen
+## VI 
 
 Beenden
 ```
@@ -22,16 +22,16 @@ $:w
 ``` 
 
 
-##Nano
+## Nano
 Nano zeigt einem die Kommandos unten an. Das ^ Zeichen bedeutet STRG. Also ^O heißt STRG+O.
 
 
-#Arbeiten mit der Konsole
+# Arbeiten mit der Konsole
 Prozess abbrechen: CTRL + C
 
 Prozess beenden (wie exit): CTRL + D
 
-##$which 
+## $which 
 zeigt einem an, wo ein commando ist. Also z.B.
 ```
 $which rename
@@ -40,33 +40,33 @@ $/usr/bin/rename
 
 ins eigene Home verzeichnis wechseln: cd ~
 
-##ls
+## ls
 Datein mit page thru auflisten:
 ``` 
 $ls | less
 ```
 die Option -l macht es auführlich? 
 
-##cp
+## cp
 Datei kopieren mit CP
 
-##mv
+## mv
 Dateien verschieben
 
-##rm
+## rm
 remove
 
-##makedir
+## makedir
 
 
-##Leere Datei erstellen
+## Leere Datei erstellen
 Dies erstellt eine neue Datei "dateiname.txt":
 ```
 $:> dateiname.txt
 ```
 
 
-##Rename
+## Rename
 Umbennen von Dateien nach dem Muster:
 rename 's/old-name/new-name/' files 
 
