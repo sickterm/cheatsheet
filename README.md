@@ -201,6 +201,8 @@ Aktuelle Distribution `disco` -- ändern auf das neue Distribution (z.B.
 ```
 
 # git
+Achtung! Immer ins das richtige Verzeichnis gehen. Funktioniert nur im richtigen Verzeichnis und wenn das repository schon erstell wurde!
+
 Updates vom Remote holen:
 
 ```
